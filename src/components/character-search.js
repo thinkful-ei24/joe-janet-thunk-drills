@@ -16,18 +16,27 @@ export class CharacterSearch extends React.Component {
         const characters = this.props.characters.map((character, index) => (
             <li key={index}>{character}</li>
         ));
-
+   
         return <ul className="character-search-results">{characters}</ul>;
+            
+            
+
     }
 
     render() {
+     
         return (
             <div className="character-search">
                 {/* When this form is submitted you should submit the
                     searchCharacters action */}
                 <form>
                     <input type="search" ref={input => (this.input = input)} />
-                    <button>Search</button>
+                    <button onClick= {(e)=>{
+                    e.preventDefault();
+                    this.props.dispatch(searchCharacters(this.input.value));
+                  
+                    }}>
+                    Search</button>
                 </form>
                 <ul className="character-search-results">
                     {this.renderResults()}

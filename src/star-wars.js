@@ -8,7 +8,9 @@ function _search(name) {
             return Promise.reject(res.statusText);
         }
         return res.json();
-    }).then(data => data.results.map(character => character.name));
+    }).then(data => data.results.map(character => character.name)
+
+    );
 }
 
 export function search(name) {
